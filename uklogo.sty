@@ -1,0 +1,43 @@
+\ProvidesPackage{uklogo}
+\RequirePackage{graphicx}
+
+
+%\usepackage{gridset}
+%\usepackage{blindtext}
+% \raggedbottom
+
+% \pagestyle{myheadings}
+
+%\markright{gridbase=\gridbase, gridinterval=\gridinterval\ without move down}%
+\newcommand\uklogo[1][32pt]{%
+  % \hbox to 300pt{%
+  \def\uksmallfont{\the\dimexpr #1/4\relax}%
+  \def\mystrut{\vrule width 0pt height \baselineskip depth \the\dimexpr #1/15\relax}%
+  \def\selectsmall{\fontsize{\uksmallfont}{0pt}\selectfont\mystrut}%
+  \def\ukbigfont{\the\dimexpr #1/2\relax}%
+  \def\selectbig{\fontsize{\ukbigfont}{0pt}\selectfont\mystrut}%
+  \def\uklogoskip{\the\dimexpr #1/10\relax}%
+  \typeout{#1, \ukbigfont, \uksmallfont}
+  % \def\logodim{\the\dimexpr#1/10*11\relax}
+  \def\logodim{\the\dimexpr#1\relax}%
+  % proč je to potřeba?
+  \def\fixline{\kern-\the\dimexpr #1/10\relax}%
+  \hbox{%
+    \vbox{%
+      \hbox{\noindent\includegraphics[height=\logodim,width=\logodim]{logo-5.mps}}%
+    }%
+    \hskip\uklogoskip%
+    \vbox to #1{%
+      \hbox {\selectsmall Ústřední}%\\% 
+      % \fontsize{18pt}{26pt}\selectfont\kern-6pt\textbf{knih\kern-.2ptovna}\\
+      % \kern2pt%
+      % \fixline%
+      \hbox{\selectbig\textbf{knihovna}}%\\%
+      % \hbox to \uksmallfont{\selectsmall \null\hspace{.5pt}\raise1pt\hbox{PedF UK}}
+      % \fixline%
+      \hbox {\selectsmall {PedF UK}}
+    }%
+  }%
+}
+
+\endinput
