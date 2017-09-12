@@ -14,28 +14,31 @@
   \begingroup % changes should be local
   \uklogofont
   \def\uksmallfont{\the\dimexpr #1/4\relax}%
-  \def\mystrut{\vrule width 0pt height \baselineskip depth \the\dimexpr #1/15\relax}%
-  \def\selectsmall{\fontsize{\uksmallfont}{0pt}\selectfont\mystrut}%
+  % \def\mystrut##1{\vrule width 0pt height ##1 depth \the\dimexpr #1/15\relax}%
+  % \def\selectsmall{\fontsize{\uksmallfont}{0pt}\selectfont\mystrut}%
+  \def\ukselect##1{\fontsize{##1}{##1}\selectfont}
   \def\ukbigfont{\the\dimexpr #1/2\relax}%
-  \def\selectbig{\fontsize{\ukbigfont}{0pt}\selectfont\mystrut}%
+  % \def\selectbig{\fontsize{\ukbigfont}{0pt}\selectfont\mystrut}%
   \def\uklogoskip{\the\dimexpr #1/10\relax}%
   \typeout{#1, \ukbigfont, \uksmallfont}
   %%%%%%%%%%%
-  \def\mybox##1{\hbox{##1}\typeout{baseline: \the\baselineskip}}
-  \def\logodim{\the\dimexpr#1\relax}%
+  \def\mybox##1##2{\baselineskip=##1\ukselect##1\hbox{##2}\typeout{baseline: \the\baselineskip}}
+  \def\logodim{\the\dimexpr#1/10*11\relax}%
   \hbox{%
     \vbox{%
-      \hbox{\noindent\includegraphics[height=\logodim,width=\logodim]{logo-5.mps}}%
+      \hbox{\raisebox{\the\dimexpr #1/20*21\relax}{\rotatebox{270}{\includegraphics[height=\logodim,width=\logodim]{logo-5.mps}}}}
     }%
     \hskip\uklogoskip%
     \vbox{%
       % we must set the baselineskip outside
-      \baselineskip=\uksmallfont
-      \mybox{\selectsmall Ústřední}%\\% 
-      \baselineskip=\ukbigfont
-      \mybox{\selectbig\textbf{knihovna}}%\\%
-      \baselineskip=\uksmallfont
-      \mybox{\selectsmall PedF UK}
+      % \baselineskip=\uksmallfont
+      \mybox\uksmallfont{Ústřední}%\\% 
+      % \baselineskip=\ukbigfont
+      \mybox\ukbigfont{\MakeUppercase{knihovna}}%\\%
+      % oprava vertikálního zarovnání
+      \kern\the\dimexpr #1/10\relax
+      % \baselineskip=\uksmallfont
+      \mybox\uksmallfont{PedF UK}
     }%
   }%
   \endgroup
