@@ -14,13 +14,9 @@
   \begingroup % changes should be local
   \uklogofont
   \def\uksmallfont{\the\dimexpr #1/4\relax}%
-  % \def\mystrut##1{\vrule width 0pt height ##1 depth \the\dimexpr #1/15\relax}%
-  % \def\selectsmall{\fontsize{\uksmallfont}{0pt}\selectfont\mystrut}%
-  \def\ukselect##1{\fontsize{##1}{##1}\selectfont}
   \def\ukbigfont{\the\dimexpr #1/2\relax}%
-  % \def\selectbig{\fontsize{\ukbigfont}{0pt}\selectfont\mystrut}%
+  \def\ukselect##1{\fontsize{##1}{##1}\selectfont}
   \def\uklogoskip{\the\dimexpr #1/10\relax}%
-  \typeout{#1, \ukbigfont, \uksmallfont}
   %%%%%%%%%%%
   \def\mybox##1##2{\baselineskip=##1\ukselect##1\hbox{##2}\typeout{baseline: \the\baselineskip}}
   \def\logodim{\the\dimexpr#1/10*11\relax}%
@@ -30,14 +26,11 @@
     }%
     \hskip\uklogoskip%
     \vbox{%
-      % we must set the baselineskip outside
-      % \baselineskip=\uksmallfont
       \mybox\uksmallfont{Ústřední}%\\% 
-      % \baselineskip=\ukbigfont
+      % zarovnání s ostatními řádky
       \mybox\ukbigfont{\kern-.02em knihovna}%\\%
       % oprava vertikálního zarovnání
       \kern\the\dimexpr #1/10\relax
-      % \baselineskip=\uksmallfont
       \mybox\uksmallfont{PedF UK}
     }%
   }%
