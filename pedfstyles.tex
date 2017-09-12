@@ -1,0 +1,34 @@
+\documentclass{article}
+% pro hezké formátování příkladů s výsledky
+\usepackage{fontspec}
+\setmainfont{Gentium}
+\setmonofont{Inconsolata}
+\setsansfont{TeX Gyre Adventor}
+\usepackage{showexpl}
+\usepackage{uklogo}
+\begin{document}
+
+\title{Balíčky pro knihovnu PedF UK}
+\author{Michal Hoftich}
+\date{12. 9. 2017}
+\maketitle
+
+\section{Balíček \texttt{uklogo}}
+
+Logo knihovny. Obsahuje jeden příkaz \verb|\uklogo|
+
+\begin{LTXexample}
+  \uklogo
+  \uklogo[24pt]
+\end{LTXexample}
+
+Parametr je volitelný a upřesňuje výšku loga, bez jeho použití je vysoké 32 bodů.
+
+Je možné změnit písmo loga redefinicí příkazu \verb|\uklogofont|:
+
+\begin{LTXexample}
+  \newfontfamily\uklogofont{Fira Sans}
+  \uklogo
+\end{LTXexample}
+
+\end{document}
