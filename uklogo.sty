@@ -10,7 +10,10 @@
 % \pagestyle{myheadings}
 
 %\markright{gridbase=\gridbase, gridinterval=\gridinterval\ without move down}%
+\def\uklogo@library{Knihovna}
+\def\uklogo@faculty{PedF UK}
 \def\uklogo@box#1#2{\baselineskip=#1\ukselect#1\hbox{#2}}
+\def\uklogo@file{logo-6.mps}
 \newcommand\uklogo[1][32pt]{%
   \begingroup % changes should be local
   \uklogofont
@@ -22,7 +25,8 @@
   \def\logodim{\the\dimexpr#1/10*11\relax}%
   \hbox{%
     \vbox{%
-      \hbox{\raisebox{\the\dimexpr #1/20*21\relax}{\rotatebox{270}{\includegraphics[height=\logodim,width=\logodim]{logo-6.mps}}}}
+      \hbox{\raisebox{\the\dimexpr #1/20*21\relax}{\rotatebox{270}{\includegraphics[height=\logodim,width=\logodim]{\uklogo@file}}}}
+      % \hbox{\raisebox{\the\dimexpr #1/20*21\relax}{{\includegraphics[height=\logodim,width=\logodim]{logo-6.mps}}}}
       % \hbox{\includegraphics[height=\logodim,width=\logodim]{logo-5.mps}}
     }%
     \hskip\uklogoskip%
@@ -30,10 +34,10 @@
       % už nejsme ústřední
       % \uklogo@box\uksmallfont{Ústřední}%\\% 
       % zarovnání s ostatními řádky
-      \uklogo@box\ukbigfont{\kern-\the\dimexpr\ukbigfont/100*5\relax Knihovna}%\\%
+      \uklogo@box\ukbigfont{\kern-\the\dimexpr\ukbigfont/100*5\relax\uklogo@library}%\\%
       % oprava vertikálního zarovnání
-      \kern\the\dimexpr #1/10\relax
-      \uklogo@box\uksmallfont{PedF UK}
+      \kern\the\dimexpr #1/10\relax%
+      \uklogo@box\uksmallfont{\uklogo@faculty}%
     }%
   }%
   \endgroup
