@@ -1,6 +1,11 @@
 \ProvidesPackage{pedfstyles}
 \RequirePackage{uklogo}
+\RequirePackage{kvoptions}
 \RequirePackage{array}
+
+\DeclareStringOption[11]{month}
+\ProcessKeyvalOptions*
+
 \let\akcesize\large
 \newcommand\bigtitle[1]{\bgroup\raggedright\fontsize{46}{48}\selectfont\bfseries\strut #1\strut\egroup\par\hugeskip}
 \newcommand\smalltitle[1]{\bgroup\akcesize\raggedright\bfseries#1\egroup\par\medskip}
@@ -12,8 +17,8 @@
   \tabular{@{} >{\addfontfeature{Numbers={Tabular}}} p{7.3em} >{\addfontfeature{Numbers={Tabular}}} p{3.5em} >{\raggedright\arraybackslash} p{24em} @{}}%
 }
 {\endtabular\par\bigskip}
-\def\current@month{11}
-\newcommand\datum[1]{#1.\,\current@month.}
+% \def\current@month{11}
+\newcommand\datum[1]{#1.\,\pedfstyles@month.}
 % jen pro datumy během jednoho měsíce
 \newcommand\rozsah[2]{\datum{#1}\,--\,\datum{#2}}
 
