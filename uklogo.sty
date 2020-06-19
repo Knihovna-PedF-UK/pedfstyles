@@ -63,7 +63,9 @@
   \setlength{\tabcolsep}{0pt}
   \tabular{@{}lp{\sova@fontsize}l@{}}%
   \parbox{#1}{%
-    \includegraphics[height=#1,keepaspectratio]{\sova@imgfile}%
+    \textcolor{\sova@unicolor}{%
+      \includegraphics[height=#1,keepaspectratio]{\sova@imgfile}%
+    }
   }%
   & ~ &% the second cell inserts horizontal space
   \fontsize{\sova@linesize}{\sova@linesize}\selectfont% 
@@ -79,7 +81,17 @@
   \egroup%
 }
 
-% set default logo to sova
 
+\newcommand\logosovacolor[1][32pt]{%
+  \bgroup%
+  \definecolor{ca3344}{HTML}{ca3344}%
+  \def\sova@unicolor{ca3344}%
+  \def\sova@imgfile{sova-red.pdf}
+  \logosova[#1]%
+  \egroup%
+}
+
+
+% set default logo to sova
 \let\uklogo\logosova
 \endinput
