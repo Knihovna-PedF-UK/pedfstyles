@@ -54,6 +54,7 @@
 \def\sova@university{Univerzita Karlova}
 \def\sova@library{Knihovna}
 \def\sova@unicolor{black}% 
+\def\sova@letterspace{10.0}
 \newcommand\logosova[1][32pt]{%
   \bgroup%
   \def\sova@linesize{\the\dimexpr #1/5\relax}% Calculate font size based on the desired logo height
@@ -70,11 +71,11 @@
   & ~ &% the second cell inserts horizontal space
   \fontsize{\sova@linesize}{\sova@linesize}\selectfont% 
   % \bfseries%
-  \setbox0=\hbox{\sova@faculty}% measure longest text
+  \setbox0=\hbox{\addfontfeature{LetterSpace=\sova@letterspace}\sova@faculty}% measure longest text
   \parbox{\wd0}{% 
-    \sova@faculty\\%
-    \sova@library\\%
-    \color{\sova@unicolor}
+    \addfontfeature{LetterSpace=\sova@letterspace}\sova@faculty\\%
+    \addfontfeature{LetterSpace=\sova@letterspace}\sova@library\\%
+    \addfontfeature{LetterSpace=\sova@letterspace}\color{\sova@unicolor}
     \sova@university%
   }%
   \endtabular%
