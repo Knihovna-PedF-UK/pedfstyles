@@ -77,7 +77,7 @@
   \parbox{#1}{%
     \textcolor{\sova@unicolor}{%
       \includegraphics[height=#1,keepaspectratio]{\sova@imgfile}%
-    }
+    }%
   }%
   & ~ &% the second cell inserts horizontal space
   \fontsize{\sova@linesize}{\sova@linesize}\selectfont% 
@@ -86,7 +86,7 @@
   \parbox{\wd0}{% 
     \addfontfeature{LetterSpace=\sova@letterspace}\sova@faculty\\%
     \addfontfeature{LetterSpace=\sova@letterspace}\sova@library\\%
-    \addfontfeature{LetterSpace=\sova@letterspace}\color{\sova@unicolor}
+    \addfontfeature{LetterSpace=\sova@letterspace}\color{\sova@unicolor}%
     \sova@university%
   }%
   \endtabular%
@@ -98,7 +98,7 @@
   \bgroup%
   \definecolor{ca3344}{HTML}{ca3344}%
   \def\sova@unicolor{ca3344}%
-  \def\sova@imgfile{sova-red.pdf}
+  \def\sova@imgfile{sova-red.pdf}%
   \logosova[#1]%
   \egroup%
 }
