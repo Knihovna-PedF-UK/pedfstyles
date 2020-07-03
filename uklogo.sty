@@ -3,7 +3,18 @@
 \RequirePackage{xcolor}
 
 % definice fontů
-\RequirePackage{LibreBodoni}
+%\RequirePackage{LibreBodoni}
+\AtBeginDocument{%
+\@ifpackageloaded{fontspec}{%
+  \newfontfamily\librebodoni
+      [ UprightFont    = *-Regular ,
+        ItalicFont     = *-Italic ,
+        BoldFont       = *-Bold , 
+        BoldItalicFont = *-BoldItalic ]
+      {LibreBodoni}
+}{
+  \newcommand*\librebodoni{\fontfamily{\librebodonifamily}\selectfont}
+}}
 
 
 \newcommand\uklogofont{\sffamily}
