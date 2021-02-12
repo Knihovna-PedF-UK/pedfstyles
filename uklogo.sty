@@ -93,8 +93,18 @@
   \egroup%
 }
 
-
+% logo in shades of red
 \newcommand\logosovacolor[1][32pt]{%
+  \bgroup%
+  \definecolor{ca3344}{HTML}{ca3344}%
+  \def\sova@unicolor{ca3344}%
+  \def\sova@imgfile{sova-oficial-color.pdf}%
+  \logosova[#1]%
+  \egroup%
+}
+
+% outline logo with red border
+\newcommand\logosovacoloroutline[1][32pt]{%
   \bgroup%
   \definecolor{ca3344}{HTML}{ca3344}%
   \def\sova@unicolor{ca3344}%
