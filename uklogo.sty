@@ -70,6 +70,7 @@
   \bgroup%
   \def\sova@linesize{\the\dimexpr #1/5\relax}% Calculate font size based on the desired logo height
   \def\sova@fontsize{\the\dimexpr #1/50*9\relax}% font size = img height / 5 * 0.8 
+  \fontsize{\sova@linesize}{\sova@linesize}\selectfont% 
   \librebodoni%
   % remove table padding
   \setlength{\tabcolsep}{0pt}
@@ -80,7 +81,6 @@
     }%
   }%
   & ~ &% the second cell inserts horizontal space
-  \fontsize{\sova@linesize}{\sova@linesize}\selectfont% 
   % \bfseries%
   \setbox0=\hbox{\addfontfeature{LetterSpace=\sova@letterspace}\sova@faculty}% measure longest text
   \parbox{\wd0}{% 
@@ -88,7 +88,7 @@
     \addfontfeature{LetterSpace=\sova@letterspace}\sova@library\\%
     \addfontfeature{LetterSpace=\sova@letterspace}\color{\sova@unicolor}%
     \sova@university%
-  }%
+  }\\%
   \endtabular%
   \egroup%
 }
