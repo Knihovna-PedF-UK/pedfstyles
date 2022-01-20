@@ -1,6 +1,8 @@
 \ProvidesPackage{uklogo}
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
+\RequirePackage{qrcode}
+\RequirePackage{url}
 
 % definice fontů
 %\RequirePackage{LibreBodoni}
@@ -116,4 +118,22 @@
 
 % set default logo to sova
 \let\uklogo\logosova
+
+% put info into qrcode
+% to add html ID (like foo.cz/xx#aaa)
+% use \qrbox[id]{text}{url}
+% don't use protocol in URL
+% correct use:
+% \qrbox[tymovka]{Hello world}{knihovna.pedf.cuni.cz/studovna.html}
+% \qrbox{Hello}{knihovna.pedf.cuni.cz/studovna.html} -- without link to ID destination in the page
+% ideally, use URL shortener: \qrbox{Hello}{bit.ly/3fJL1Ye}
+% this command adds ?qr-\jobname to the qr code - this enables us access to the web from the qr code
+
+\newcommand\qrbox[3][]{%
+  \bgroup
+  \small%
+  \vbox{#2\\[\baselineskip]{\footnotesize #3}\texttt{\ifx\relax#1\relax\else\##1\fi}\\\qrcode[height=2cm]{https://#3?qr-\jobname\ifx\relax#1\relax\else\##1\fi}}
+  \egroup
+}
+
 \endinput
