@@ -126,9 +126,10 @@
 % correct use:
 % \qrbox[tymovka]{Hello world}{knihovna.pedf.cuni.cz/studovna.html}
 % \qrbox{Hello}{knihovna.pedf.cuni.cz/studovna.html} -- without link to ID destination in the page
-% ideally, use URL shortener: \qrbox{Hello}{bit.ly/3fJL1Ye}
 % this command adds ?qr-\jobname to the qr code - this enables us access to the web from the qr code
-
+% ideally, use URL shortener: \qrbox{Hello}{bit.ly/3fJL1Ye}
+% you must add ?qr-<identifier> part to the url that is resolved by the shortener
+ 
 \newcommand\qrbox[3][]{%
   \bgroup
   \small%
