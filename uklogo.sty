@@ -137,4 +137,31 @@
   \egroup
 }
 
+\ExplSyntaxOn
+
+\tl_new:N \qr_platba_tl
+\dim_new:N \qr_platba_height
+\dim_set:Nn \qr_platba_height{2cm}
+
+\keys_define:nn {qr_platba}{
+  msg .code:n    = \tl_put_right:Nn \qr_platba_tl{*MSG:#1},
+  price .code:n  = \tl_put_right:Nn \qr_platba_tl{*AM:#1},
+  currency .code:n  = \tl_put_right:Nn \qr_platba_tl{*CC:#1},
+  identifier .code:n = \tl_put_right:Nn \qr_platba_tl{*RF:#1},
+  name .code:n = \tl_put_right:Nn \qr_platba_tl{*RN:#1},
+  email .code:n = \tl_put_right:Nn \qr_platba_tl{*NT:E*NTA:#1},
+  phone .code:n = \tl_put_right:Nn \qr_platba_tl{*NT:P*NTA:#1},
+  height .dim_set:N = \qr_platba_height
+}
+
+% format details: https://en.wikipedia.org/wiki/Short_Payment_Descriptor
+% #1 key-val options
+% #2 IBAN account number - required
+\newcommand\qrpayment[2][]{%
+  \tl_set:Nn\qr_platba_tl{SPD*1.0*ACC:#2}
+  \keys_set:nn {qr_platba}{#1}
+  \qrcode[height=\qr_platba_height]{\tl_use:N\qr_platba_tl}\\\tl_use:N\qr_platba_tl
+}
+\ExplSyntaxOff
+
 \endinput
