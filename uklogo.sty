@@ -158,9 +158,9 @@
 % #1 key-val options
 % #2 IBAN account number - required
 \newcommand\qrpayment[2][]{%
-  \tl_set:Nn\qr_platba_tl{SPD*1.0*ACC:#2}
-  \keys_set:nn {qr_platba}{#1}
-  \qrcode[height=\qr_platba_height]{\tl_use:N\qr_platba_tl}\\\tl_use:N\qr_platba_tl
+  \tl_set:Nn\qr_platba_tl{SPD*1.0*ACC:#2}%
+  \keys_set:nn {qr_platba}{#1}%
+  \qrcode[height=\qr_platba_height]{\tl_use:N\qr_platba_tl}%
 }
 \ExplSyntaxOff
 
