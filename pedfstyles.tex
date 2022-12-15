@@ -16,7 +16,9 @@
 
 \section{Balíček \texttt{uklogo}}
 
-Logo knihovny. Obsahuje jeden příkaz \verb|\uklogo|
+Logo knihovny. Obsahuje jeden příkazy:
+
+\noindent\verb|\uklogo|\oarg{velikost}
 
 \begin{LTXexample}
   \uklogo
@@ -31,6 +33,41 @@ Je možné změnit písmo loga redefinicí příkazu \verb|\uklogofont|:
   \renewfontfamily\uklogofont{Fira Sans}
   \uklogo
 \end{LTXexample}
+
+\noindent\verb|\qrbox|\oarg{identifikátor}\marg{Popis}\marg{URL}
+
+Vytvoří QR kód pro URL s popiskem. Identifikátor se připojí na konec URL jako parameter,
+pro detekci použití kódu v log souboru.
+
+
+\begin{LTXexample}
+\qrbox[tymovka]{Hello world}
+{knihovna.pedf.cuni.cz/studovna.html}
+\end{LTXexample}
+
+\noindent \verb|\qrpayment|\oarg{parametery}\marg{IBAN číslo účtu}
+
+Vytvoří QR kód pro platbu ve formátu \textit{Short Payment Descriptor}, kterej podporujou český banky. 
+Dá se využít pro platby mobilem.
+
+\begin{LTXexample}
+\qrpayment[msg=pokus,email=knihovna@pedf.cuni.cz]
+{CZ2806000000000168540115}
+\end{LTXexample}
+
+Dostupný parametry:
+
+\begin{description}
+  \item[price] cena
+  \item[currency] kód měny ve formátu ISO 4217
+  \item[email] email pro notifikaci o platbě (nejde použít zároveň s telefonem)
+  \item[phone] telefon pro notifikaci o platbě 
+  \item[identifier] identifikátor nakupujícího (max 16 znaků)
+  \item[name] jméno příjemce
+  \item[msg] zpráva pro příjemce
+\end{description}
+
+
 
 \section{Balíček \texttt{pedfstyles}}
 
