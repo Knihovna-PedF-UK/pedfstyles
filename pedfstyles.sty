@@ -30,9 +30,9 @@
 
 \providecommand{\balancebox}[2]% #1 = max width, #2 = contents
 {\begingroup% save registers
-  \dimendef\height=0
-  \dimendef\width=1
-  \dimendef\test=2
+  \dimendef\height=0%
+  \dimendef\width=1%
+  \dimendef\test=2%
   \settowidth{\test}{#2}% single line check
   \width=#1\relax
   \ifdim\test>\width
@@ -47,14 +47,14 @@
 \endgroup}
 
 
-\protected\def\BalancedRagged{
-\leftskip     0pt
-\rightskip    0pt plus 10em
-\spaceskip=1\fontdimen2\font plus .5\fontdimen3\font minus 1.5\fontdimen4\font
-\xspaceskip=1\fontdimen2\font plus 1\fontdimen3\font minus 1\fontdimen4\font
-\parfillskip  0pt plus 15em
-\relax
-}
+\protected\def\BalancedRagged{%
+\leftskip     0pt%
+\rightskip    0pt plus 10em%
+\spaceskip=1\fontdimen2\font plus .5\fontdimen3\font minus 1.5\fontdimen4\font%%
+\xspaceskip=1\fontdimen2\font plus 1\fontdimen3\font minus 1\fontdimen4\font%
+\parfillskip  0pt plus 15em%
+\relax%
+}%
 
 \titleformat{\section}[block]
 {}{}{0pt}{\normalfont\huge\bfseries\balancebox{\textwidth}}[\vskip\baselineskip]
