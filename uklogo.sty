@@ -133,7 +133,7 @@
 \newcommand\qrbox[3][]{%
   \bgroup
   \small%
-  \vbox{#2\\[\baselineskip]{\footnotesize #3}\texttt{\ifx\relax#1\relax\else\##1\fi}\\\qrcode[height=2cm]{https://#3?qr-\jobname\ifx\relax#1\relax\else\##1\fi}}
+  \vbox{#2\\[\baselineskip]{\footnotesize #3}\texttt{\ifx\relax#1\relax\else\##1\fi}\\\qrcode[height=2cm]{https://#3?qr-\jobname\ifx\relax#1\relax\else\##1\fi}}%
   \egroup
 }
 
